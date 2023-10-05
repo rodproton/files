@@ -5,5 +5,5 @@ exec i3
 dunst &
 flameshot &
 nm-applet &
-picom &
+compton &
 feh --randomize --bg-fill  ~/Pictures/Wallpapper/ &
