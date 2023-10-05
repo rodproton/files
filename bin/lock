@@ -1,0 +1,20 @@
+#!/bin/sh
+
+OPTION=$(printf "Power off\nRestart\nLogout\nLock\n" | dmenu -i -fn "$DMENU_FONT1" -p 'Select option')
+echo $OPTION
+if [ -n "$OPTION" ]; then
+    case $OPTION in
+        "Logout")
+            pkill -u $USER
+            ;;
+        "Power off")
+            systemctl poweroff
+            ;;
+        "Restart")
+            systemctl reboot
+	    ;;
+        "Lock")
+            i3lock
+	    ;;
+   esac
+fi

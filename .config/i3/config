@@ -1,0 +1,162 @@
+# Default modkey
+set $mod Mod4
+
+# Hide titlebar
+new_window pixel
+
+# Font for window titles.
+font pango: Liberation sans 10
+
+# Use Mouse+$mod to drag floating windows 
+floating_modifier $mod
+
+# Show scratchpad 
+bindsym $mod+s scratchpad show
+
+# Make current window a scratchpad
+bindsym $mod+t move scratchpad 
+
+# Launch terminal
+bindsym $mod+Return exec --no-startup-id st
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 in place (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Split in horizontal orientation
+bindsym $mod+v split h
+
+# Split in vertical orientation
+bindsym $mod+h split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+Shift+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+# Focus the parent container (focus all)
+bindsym $mod+a focus parent
+
+# Kill focused window
+bindsym $mod+q kill
+
+#Launch dmenu
+bindsym $mod+p exec "dmenu_run -fn 'Liberation sans 10' -p 'dmenu'"
+
+# Lock screen
+bindsym $mod+Shift+x exec "~/.local/scripts/lock.sh
+
+# Launch browser selection
+bindsym $mod+b exec "~/.local/scripts/browser.sh"
+
+# Launch fzf
+bindsym $mod+f exec --no-startup-id st -e "/home/didacus/.local/scripts/fzf.sh"
+
+# Launch cht.sh
+bindsym $mod+i exec --no-startup-id st -e "/home/didacus/.local/scripts/cht.sh"
+
+
+# Update system
+bindsym $mod+u exec --no-startup-id st -e "/home/didacus/.local/scripts/update.sh"
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Move between windows
+#bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Name the workspaces
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+
+# Switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+
+# Resize window 
+bindsym $mod+r mode "resize"
+mode "resize"
+{
+    # Resize with the arrow keys
+    bindsym Left  resize shrink width  1 px or 1 ppt
+    bindsym Down  resize grow   height 1 px or 1 ppt
+    bindsym Up    resize shrink height 1 px or 1 ppt
+    bindsym Right resize grow   width  1 px or 1 ppt
+
+    # Resize with the vi keys
+    bindsym h  resize shrink width  1 px or 1 ppt
+    bindsym j  resize grow   height 1 px or 1 ppt
+    bindsym k  resize shrink height 1 px or 1 ppt
+    bindsym l  resize grow   width  1 px or 1 ppt
+
+    # Exit resize mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Bar setup
+bar {
+        font pango: Liberation sans 11
+        position bottom
+        status_command  i3status 
+}

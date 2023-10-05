@@ -1,0 +1,36 @@
+xterm*background: black
+xterm*foreground: white
+xterm*VT100*translations: #override \
+    Meta <KeyPress> C: copy-selection(CLIPBOARD) \n\
+    Meta <KeyPress> V: insert-selection(CLIPBOARD)
+
+! Enable modern terminal features
+xterm*utf8: 2
+xterm*eightBitInput: true
+
+! Disable the visual bell
+xterm*visualBell: false
+
+! Increase the scrollback buffer to 10000 lines
+xterm*saveLines: 10000
+
+! Use the "alt" key as the meta key
+xterm*metaSendsEscape: true
+
+! Enable focus follows mouse
+xterm*focusFollowsMouse: true
+
+! Enable mouse scrolling with the wheel
+xterm*allowMouseWheel: true
+
+! Enable text selection on right-click
+xterm*rightScrollBar: true
+
+! Use the terminus font
+xterm*font: xft:Terminus:size=20
+
+! Remap Ctrl+U and Ctrl+D for scrolling
+XTerm*VT100.translations: #override \
+    Meta<Key>U: scroll-back(1, halfpage) \n\
+    Meta<Key>D: scroll-forw(1, halfpage)
+
