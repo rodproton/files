@@ -10,14 +10,8 @@ font pango: Liberation sans 10
 # Use Mouse+$mod to drag floating windows 
 floating_modifier $mod
 
-# Show scratchpad 
-bindsym $mod+s scratchpad show
-
-# Make current window a scratchpad
-bindsym $mod+t move scratchpad 
-
 # Launch terminal
-bindsym $mod+Return exec --no-startup-id st
+bindsym $mod+Return exec --no-startup-id xterm
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -34,9 +28,7 @@ bindsym $mod+h split v
 # Enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
 
-# Change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
+# Change container layout 
 bindsym $mod+e layout toggle split
 
 # Toggle tiling / floating
@@ -61,14 +53,13 @@ bindsym $mod+Shift+x exec "~/.local/scripts/lock.sh
 bindsym $mod+b exec "~/.local/scripts/browser.sh"
 
 # Launch fzf
-bindsym $mod+f exec --no-startup-id st -e "/home/didacus/.local/scripts/fzf.sh"
+bindsym $mod+f exec --no-startup-id xterm -e "/home/didacus/.local/scripts/fzf.sh"
 
 # Launch cht.sh
-bindsym $mod+i exec --no-startup-id st -e "/home/didacus/.local/scripts/cht.sh"
-
+bindsym $mod+i exec --no-startup-id xterm -e "/home/didacus/.local/scripts/cht.sh"
 
 # Update system
-bindsym $mod+u exec --no-startup-id st -e "/home/didacus/.local/scripts/update.sh"
+bindsym $mod+u exec --no-startup-id xterm -e "/home/didacus/.local/scripts/update.sh"
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
@@ -144,10 +135,10 @@ mode "resize"
     bindsym Right resize grow   width  1 px or 1 ppt
 
     # Resize with the vi keys
-    bindsym h  resize shrink width  1 px or 1 ppt
-    bindsym j  resize grow   height 1 px or 1 ppt
-    bindsym k  resize shrink height 1 px or 1 ppt
-    bindsym l  resize grow   width  1 px or 1 ppt
+    bindsym h  resize grow   width  1 px or 1 ppt
+    bindsym j  resize shrink height 1 px or 1 ppt
+    bindsym k  resize grow   height 1 px or 1 ppt
+    bindsym l  resize shrink width  1 px or 1 ppt
 
     # Exit resize mode
     bindsym Return mode "default"
@@ -156,7 +147,7 @@ mode "resize"
 
 # Bar setup
 bar {
-        font pango: Liberation sans 11
+        font pango: Liberation sans 10
         position bottom
         status_command  i3status 
 }
