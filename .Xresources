@@ -27,7 +27,8 @@ xterm*allowMouseWheel: true
 xterm*rightScrollBar: true
 
 ! Use the terminus font
-xterm*font: xft:Terminus:size=20
+!xterm*font: xft:Terminus:size=20
+!xterm*font: xft:RobotoMono:size=20
 
 ! Remap Ctrl+U and Ctrl+D for scrolling
 XTerm*VT100.translations: #override \
