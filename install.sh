@@ -12,7 +12,7 @@ sudo sed -i -e 's/bookworm/testing/g' /etc/apt/sources.list
 sudo apt -y update && sudo apt -y upgrade && sudo apt -y full-upgrade && sudo apt -y dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean && sudo apt -y autopurge
 
 # Programs and Packages
-sudo apt install -y xorg build-essential git python3-pip i3 network-manager pcmanfm pulseaudio feh dunst unzip mpv curl flameshot keepassxc tmux wget ninja-build gettext cmake zathura parallel ffmpeg picom
+sudo apt install -y xorg xclip build-essential git python3-pip i3 network-manager pcmanfm pulseaudio feh dunst unzip mpv curl flameshot keepassxc tmux wget ninja-build gettext cmake zathura parallel ffmpeg picom
 
 # Fonts
 bash $HOME/fonts.sh
