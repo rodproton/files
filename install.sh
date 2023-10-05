@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+# Error handling
+set -e
+
 # Update
 sudo sed -i -e 's/bookworm/testing/g' /etc/apt/sources.list
 
