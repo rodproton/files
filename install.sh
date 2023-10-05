@@ -4,7 +4,7 @@
 set -e
 
 # Folders
-mv bin/ $HOME/.local/
+mv $HOME/bin/ $HOME/.local/
 
 # Update
 sudo sed -i -e 's/bookworm/testing/g' /etc/apt/sources.list
