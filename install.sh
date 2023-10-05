@@ -15,7 +15,7 @@ sudo apt install -y xorg build-essential git python3-pip i3 network-manager pcma
 bash $HOME/fonts.sh
 
 # Firefox
-bash $HOME/firefox.sh
+sudo bash $HOME/firefox.sh
 
 # Neovim
 bash $HOME/neovim.sh
