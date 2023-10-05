@@ -6,7 +6,7 @@ sudo tar -xvf package.tar -C /opt/
 
 rm package.tar
 
-cat > /usr/share/applications/firefox.desktop << "EOF"
+sudo cat > /usr/share/applications/firefox.desktop << "EOF"
 [Desktop Entry]
 Name=Firefox
 Comment=Web Browser
