@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Update
-sed -i -e 's/bookworm/testing/g' /etc/apt/sources.list
+sudo sed -i -e 's/bookworm/testing/g' /etc/apt/sources.list
 
 sudo apt -y update && sudo apt -y upgrade && sudo apt -y full-upgrade && sudo apt -y dist-upgrade && sudo apt -y autoremove && sudo apt -y autoclean && sudo apt -y autopurge
 
