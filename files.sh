@@ -16,3 +16,10 @@ $HOME/.local/bin/remap-keys
 # xterm
 xrdb -merge .Xresources
 EOF
+
+
+sudo cat >> $HOME/.bashrc << "EOF"
+
+#Enable vi mode
+set -o vi
+EOF
