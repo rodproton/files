@@ -14,6 +14,9 @@ sudo apt -y update && sudo apt -y upgrade && sudo apt -y full-upgrade && sudo ap
 # Programs and Packages
 sudo apt install -y xorg xclip build-essential git python3-pip i3 network-manager pcmanfm pulseaudio feh dunst unzip mpv curl flameshot keepassxc tmux wget ninja-build gettext cmake zathura parallel ffmpeg picom
 
+# Files
+bash $HOME/files.sh
+
 # Fonts
 bash $HOME/fonts.sh
 
