@@ -12,9 +12,6 @@ export PATH=$PATH:/usr/local/go/bin
 
 #Keyboard Remap
 $HOME/.local/bin/remap-keys
-
-# xterm
-xrdb -merge .Xresources
 EOF
 
 

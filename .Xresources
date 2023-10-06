@@ -26,9 +26,8 @@ xterm*allowMouseWheel: true
 ! Enable text selection on right-click
 xterm*rightScrollBar: true
 
-! Use the terminus font
-!xterm*font: xft:Terminus:size=20
-!xterm*font: xft:RobotoMono:size=20
+! Select font
+xterm*font: xft:FiraMono Nerd Font:size=20
 
 ! Remap Ctrl+U and Ctrl+D for scrolling
 XTerm*VT100.translations: #override \
