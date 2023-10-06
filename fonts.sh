@@ -2,10 +2,10 @@
 
 mkdir -p $HOME/.local/share/fonts
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/RobotoMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraMono.zip 
 
-unzip RobotoMono.zip -d $HOME/.local/share/fonts/RobotoMono/
+unzip FiraMono.zip -d $HOME/.local/share/fonts/FiraMono/
 
-rm RobotoMono.zip
+rm FiraMono.zip
 
 fc-cache
