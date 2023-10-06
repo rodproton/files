@@ -1,5 +1,8 @@
+! Color scheme
 xterm*background: black
 xterm*foreground: white
+
+! Remap Alt+U and Alt+D for copy and paste 
 xterm*VT100*translations: #override \
     Meta <KeyPress> C: copy-selection(CLIPBOARD) \n\
     Meta <KeyPress> V: insert-selection(CLIPBOARD)
@@ -31,6 +34,6 @@ xterm*font: xft:FiraMono Nerd Font:size=20
 
 ! Remap Ctrl+U and Ctrl+D for scrolling
 XTerm*VT100.translations: #override \
-    Meta<Key>U: scroll-back(1, halfpage) \n\
-    Meta<Key>D: scroll-forw(1, halfpage)
+    Meta <KeyPress> U: scroll-back(1, halfpage) \n\
+    Meta <KeyPress> D: scroll-forw(1, halfpage)
 
