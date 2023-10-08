@@ -2,8 +2,6 @@
 vim.g.mapleader = " "
 -- File tree command
 vim.keymap.set("n", "<leader>pp", vim.cmd.Ex)
--- Open terminal 
-vim.api.nvim_set_keymap("n", "<leader>tt", [[:let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR>]], { noremap = true, silent = true })
 -- Move block of text
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
