@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Choose an option:"
+echo "1. Convert MP4"
+echo "2. Convert MP3"
+
+read -p "Enter your option: " option
+
+case $option in
+    1)
+        echo "Converting MP4 VIDEO FILES..."
+        # Convert MP4 VIDEO FILES
+        ls *.mkv | parallel -j 4 ffmpeg -i {} -c:v libx264 -preset veryfast -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -movflags +faststart _{.}.mp4
+        ;;
+    2)
+        echo "Converting MP3 SOUND FILES..."
+        # Convert MP3 SOUND FILES
+        ls *.mp3 | parallel -j 4 ffmpeg -i {} -vn -ar 44100 -ac 2 -q:a 2 _{.}.mp3
+        ;;
+    *)
+        echo "Invalid option"
+        ;;
+esac
