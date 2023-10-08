@@ -2,6 +2,6 @@
 
 setxkbmap -option caps:ctrl_modifier -option grp:shifts_toggle
 
-killall xcape 2> /dev/null
+killall xcape &> /dev/null
 
 xcape  -e 'Caps_Lock=Escape'
