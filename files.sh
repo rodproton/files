@@ -26,6 +26,9 @@ if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
 	exec startx &>/dev/null
 fi
 
+# Load Xresources
+xrdb $HOME/.Xresources
+
 #Keyboard Remap
 $HOME/.local/bin/remap-keys
 
