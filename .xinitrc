@@ -7,5 +7,4 @@ exec i3
 dunst &
 flameshot &
 nm-applet &
-compton &
-feh --randomize --bg-fill  ~/Pictures/Wallpapper/ &
+xcompmgr &
