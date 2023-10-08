@@ -44,13 +44,10 @@ key_bindings:
   - { key: C,          mods: Alt,   action: Copy }
   - { key: V,          mods: Alt,   action: Paste }
 
-# XTerm's default colors
 colors:
-  # Default colors
   primary:
     background: '0x000000'
     foreground: '0xffffff'
-  # Normal colors
   normal:
     black:   '0x000000'
     red:     '0xcd0000'
