@@ -1,10 +1,12 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Error handling
 set -e
 
 # Folders
-mv $HOME/bin/ $HOME/.local/
+mkdir -p $HOME/.local
+
+mv $HOME/bin $HOME/.local/
 
 # Update
 sudo sed -i -e 's/bookworm/testing/g' /etc/apt/sources.list
