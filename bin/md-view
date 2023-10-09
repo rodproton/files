@@ -7,10 +7,6 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-if [ ! -f /tmp/NOTE ]; then
-    touch /tmp/NOTE
-fi
-
 pandoc -s $1 > /tmp/NOTE
 
 swallow surf /tmp/NOTE
