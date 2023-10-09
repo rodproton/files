@@ -2,6 +2,8 @@
 vim.g.mapleader = " "
 -- File tree command
 vim.keymap.set("n", "<leader>pp", vim.cmd.Ex)
+-- Preview markdown files
+vim.keymap.set("n", "<leader>md", ":!md-view %:p<CR>")
 -- Move block of text
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
