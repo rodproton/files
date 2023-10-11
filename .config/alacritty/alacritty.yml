@@ -31,18 +31,12 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
 
-cursor:
-  style:
-    shape: Beam
-    blinking: Always
-  unfocused_hollow: false
-
 mouse:
   horizontal_scroll_mode: "Enabled"
 
 key_bindings:
-  - { key: C,          mods: Alt,   action: Copy }
-  - { key: V,          mods: Alt,   action: Paste }
+  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Alt, action: Paste }
 
 colors:
   primary:
