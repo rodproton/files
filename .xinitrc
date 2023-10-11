@@ -1,10 +1,8 @@
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1 &
-
 xrdb .Xresources &
-exec i3 
-
-dunst &
-flameshot &
 nm-applet &
+flameshot &
 xcompmgr &
+dunst &
+exec i3 
