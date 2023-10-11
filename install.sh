@@ -208,7 +208,7 @@ packages() {
 
     sudo apt update -y && sudo apt upgrade -y && sudo apt full-upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y && sudo apt autopurge -y
 
-    sudo apt install -y xorg xclip build-essential git python3-pip i3 network-manager pcmanfm pulseaudio feh dunst unzip mpv curl flameshot keepassxc tmux wget ninja-build gettext cmake zathura parallel ffmpeg alacritty network-manager-gnome xcape fzf xcompmgr materia-gtk-theme xdo pandoc
+    sudo apt install -y xorg xclip build-essential git python3-pip i3 network-manager pcmanfm pulseaudio feh dunst unzip mpv curl flameshot keepassxc tmux wget ninja-build gettext cmake zathura parallel ffmpeg alacritty network-manager-gnome xcape fzf xcompmgr materia-gtk-theme xdo pandoc xterm
 }
 
 folders() {
