@@ -14,7 +14,7 @@ if [ -n "$OPTION" ]; then
             systemctl reboot
 	    ;;
         "Lock")
-            i3lock
+            slock
 	    ;;
    esac
 fi
