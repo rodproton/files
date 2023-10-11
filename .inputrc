@@ -1,1 +1,4 @@
+# Tab cycle forward
 TAB:menu-complete
+# Shift-Tab cycle backwards
+"\e[Z": menu-complete-backward
