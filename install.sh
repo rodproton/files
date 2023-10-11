@@ -4,137 +4,137 @@
 set -e
 
 files() {
-    sudo cat > $HOME/.profile << "EOF"
-    # This file is not read by bash if ~/.bash_profile or ~/.bash_login exists
+sudo cat > $HOME/.profile << "EOF"
+# This file is not read by bash if ~/.bash_profile or ~/.bash_login exists
 
-    # If running bash
-    if [ -n "$BASH_VERSION" ]; then
-        # include .bashrc if it exists
-        if [ -f "$HOME/.bashrc" ]; then
-        . "$HOME/.bashrc"
-        fi
+# If running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
     fi
+fi
 
-    # Set PATH so it includes user's private bin if it exists
-    if [ -d "$HOME/bin" ] ; then
-        PATH="$HOME/bin:$PATH"
-    fi
+# Set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
-    # Set PATH so it includes user's private bin if it exists
-    if [ -d "$HOME/.local/bin" ] ; then
-        PATH="$HOME/.local/bin:$PATH"
-    fi
+# Set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
-    # Startx
-    if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
-        exec startx &>/dev/null
-    fi
+# Startx
+if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
+    exec startx &>/dev/null
+fi
 
-    # Load Xresources
-    xrdb $HOME/.Xresources
+# Load Xresources
+xrdb $HOME/.Xresources
 
-    #Keyboard Remap
-    $HOME/.local/bin/remap-keys
+#Keyboard Remap
+$HOME/.local/bin/remap-keys
 
-    # Golang 
-    export PATH=$PATH:/usr/local/go/bin
-    EOF
+# Golang 
+export PATH=$PATH:/usr/local/go/bin
+EOF
 
-    sudo cat > $HOME/.bashrc << "EOF"
-    # If not running interactively, don't do anything
-    case $- in
-        *i*) ;;
-          *) return;;
-    esac
+sudo cat > $HOME/.bashrc << "EOF"
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
-    # Don't add duplicate lines or lines starting with space in the history
-    HISTCONTROL=ignoreboth
+# Don't add duplicate lines or lines starting with space in the history
+HISTCONTROL=ignoreboth
 
-    # Append to the history file, don't overwrite it
-    shopt -s histappend
+# Append to the history file, don't overwrite it
+shopt -s histappend
 
-    # Set history length 
-    HISTSIZE=10000
-    HISTFILESIZE=20000
+# Set history length 
+HISTSIZE=10000
+HISTFILESIZE=20000
 
-    # Check window size after each command and update LINES and COLUMNS.
-    shopt -s checkwinsize
+# Check window size after each command and update LINES and COLUMNS.
+shopt -s checkwinsize
 
-    # "**" will match all files and zero or more directories and subdirectories.
-    shopt -s globstar
+# "**" will match all files and zero or more directories and subdirectories.
+shopt -s globstar
 
-    # Make less more friendly 
-    [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# Make less more friendly 
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-    # Set a fancy prompt
-    case "$TERM" in
-        xterm-color|*-256color) color_prompt=yes;;
-    esac
+# Set a fancy prompt
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
 
-    # Set colored prompt
-    force_color_prompt=yes
+# Set colored prompt
+force_color_prompt=yes
 
-    if [ -n "$force_color_prompt" ]; then
-        if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        color_prompt=yes
-        else
-        color_prompt=
-        fi
-    fi
-
-    # Display git branch
-    git_branch() {
-        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-    }
-
-    if [ "$color_prompt" = yes ]; then
-        PS1="\[\033[01;34m\]\w\[\033[32m\]\$(git_branch)\[\033[00m\] $ "
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    color_prompt=yes
     else
-        PS1="\w \$(git_branch)$ "
+    color_prompt=
     fi
-    unset color_prompt force_color_prompt
+fi
 
-    # Enable color support of ls 
-    if [ -x /usr/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-        alias ls='ls --color=auto'
-        alias dir='dir --color=auto'
-        alias vdir='vdir --color=auto'
-        alias grep='grep --color=auto'
-        alias fgrep='fgrep --color=auto'
-        alias egrep='egrep --color=auto'
-    fi
+# Display git branch
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 
-    # Colored GCC warnings and errors
-    export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+if [ "$color_prompt" = yes ]; then
+    PS1="\[\033[01;34m\]\w\[\033[32m\]\$(git_branch)\[\033[00m\] $ "
+else
+    PS1="\w \$(git_branch)$ "
+fi
+unset color_prompt force_color_prompt
 
-    # Aliases
-    alias ll='ls -l'
-    alias la='ls -A'
-    alias l='ls -CF'
+# Enable color support of ls 
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
-    # Alias definitions.
-    if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-    fi
+# Colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-    # Enable programmable completion features 
-    if ! shopt -oq posix; then
-      if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-      elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-      fi
-    fi
+# Aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
-    #Cycle auto-complete
-    bind 'TAB:menu-complete'
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
-    #Enable vi mode
-    set -o vi
-    bind -m vi-command ' Control-l: clear-screen'
-    bind -m vi-insert ' Control-l: clear-screen'
-    EOF
+# Enable programmable completion features 
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+#Cycle auto-complete
+bind 'TAB:menu-complete'
+
+#Enable vi mode
+set -o vi
+bind -m vi-command ' Control-l: clear-screen'
+bind -m vi-insert ' Control-l: clear-screen'
+EOF
 }
 
 fonts() {
@@ -156,23 +156,23 @@ firefox() {
 
     rm package.tar
 
-    sudo cat > /usr/share/applications/firefox.desktop << "EOF"
-    [Desktop Entry]
-    Name=Firefox
-    Comment=Web Browser
-    Exec=/opt/firefox/firefox %u
-    Terminal=false
-    Type=Application
-    Icon=/opt/firefox/browser/chrome/icons/default/default128.png
-    Categories=Network;WebBrowser;
-    MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
-    StartupNotify=true
-    Actions=Private;
+sudo cat > /usr/share/applications/firefox.desktop << "EOF"
+[Desktop Entry]
+Name=Firefox
+Comment=Web Browser
+Exec=/opt/firefox/firefox %u
+Terminal=false
+Type=Application
+Icon=/opt/firefox/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Actions=Private;
 
-    [Desktop Action Private]
-    Exec=/opt/firefox/firefox --private-window %u
-    Name=Open in private mode
-    EOF
+[Desktop Action Private]
+Exec=/opt/firefox/firefox --private-window %u
+Name=Open in private mode
+EOF
 
     sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
 }
