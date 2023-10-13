@@ -214,7 +214,7 @@ packages() {
 folders() {
     mkdir -p $HOME/.local
 
-    mv $HOME/bin $HOME/.local/
+    mv bin/ $HOME/.local/
 }
 
 cleanup() {
