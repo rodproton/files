@@ -6,7 +6,7 @@ set -e
 fonts() {
     mkdir -p $HOME/.local/share/fonts
 
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraMono.zip 
+    wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip
 
     unzip FiraMono.zip -d $HOME/.local/share/fonts/FiraMono/
 
