@@ -58,7 +58,11 @@ neovim() {
 }
 
 obsidian() {
-    wget -O package.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.14/obsidian_1.4.14_amd64.deb
+    url=$(curl -Is "https://github.com/obsidianmd/obsidian-releases/releases/latest" | grep -i "location:" | awk -F' ' '{print $2}' | tr -d '\r')
+    version=${url##*/v}
+    latest="https://github.com/obsidianmd/obsidian-releases/releases/latest/download/obsidian_${version}_amd64.deb"
+
+    wget -O package.deb $latest 
 
     sudo apt install -y ./package.deb
 
