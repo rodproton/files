@@ -3,6 +3,7 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled
 xrdb .Xresources &
 nm-applet &
 flameshot &
-xcompmgr &
 dunst &
 exec i3 
+
+xcompmgr &
