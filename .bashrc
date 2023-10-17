@@ -45,9 +45,9 @@ git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[\033[01;34m\]\w\[\033[32m\]\$(git_branch)\[\033[00m\] $ "
+    PS1="\[\033[01;34m\]\W\[\033[32m\]\$(git_branch)\[\033[00m\] $ "
 else
-    PS1="\w \$(git_branch)$ "
+    PS1="\W \$(git_branch)$ "
 fi
 unset color_prompt force_color_prompt
 
