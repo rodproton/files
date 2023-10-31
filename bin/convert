@@ -9,10 +9,13 @@ read -p "Enter your option: " option
 case $option in
     1)
         echo "Converting MP4 VIDEO FILES..."
-        ls *.mkv | parallel -j $(nproc) ffmpeg -i {} -c:v libx264 -preset veryfast -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -movflags +faststart _{.}.mp4
+        # Convert MP4 VIDEO FILES
+        ls *.mkv | parallel -j $(nproc) ffmpeg -i {} -c:v libx264 -preset ultrafast -crf 23 -c:a aac  -b:v 2600k -b:a 160k -vf format=yuv420p -movflags +faststart _{.}.mp4
+        #ls *.mkv | parallel -j $(nproc) ffmpeg -i {} -c:v libx264 -preset veryfast -crf 20 -c:a aac -b:a 160k -vf format=yuv420p -movflags +faststart _{.}.mp4
         ;;
     2)
         echo "Converting MP3 SOUND FILES..."
+        # Convert MP3 SOUND FILES
         ls *.mp3 | parallel -j $(nproc) ffmpeg -i {} -vn -ar 44100 -ac 2 -q:a 2 _{.}.mp3
         ;;
     *)
