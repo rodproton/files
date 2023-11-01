@@ -1,13 +1,13 @@
 #!/bin/sh
 
-OPTION=$(printf "Power off\nRestart\nLogout\nLock\n" | dmenu -i -fn "$DMENU_FONT1" -p 'Select option')
+OPTION=$(printf "Lock\nRestart\nLogout\nPower Off\n" | dmenu -i -fn "$DMENU_FONT1" -p 'Select option')
 echo $OPTION
 if [ -n "$OPTION" ]; then
     case $OPTION in
         "Logout")
             pkill -u $USER
             ;;
-        "Power off")
+        "Power Off")
             systemctl poweroff
             ;;
         "Restart")
