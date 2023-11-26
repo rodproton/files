@@ -1,0 +1,12 @@
+syntax on
+set tabstop=4
+set autoindent
+set smartindent
+set termguicolors
+set nu
+set rnu
+set colorcolumn=80
+colorscheme habamax
+setlocal wrap
+setlocal linebreak
+set spell
