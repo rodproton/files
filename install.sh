@@ -126,10 +126,10 @@ main() {
     obsidian
     cleanup
     
-   #Choose 
+    #Choose 
     librewolf
-    firefox
-    brave
+    #firefox
+    #brave
 }
 
 main
