@@ -89,8 +89,11 @@ set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
-#Keyboard Remap
-$HOME/.local/bin/remap-keys
-
 # Golang 
 export PATH=$PATH:/usr/local/go/bin
+
+# Ocaml
+test -r /home/a/.opam/opam-init/init.sh && . /home/a/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+#Keyboard Remap
+$HOME/.local/bin/remap-keys
