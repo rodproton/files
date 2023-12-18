@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "Choose an option:"
+echo "1. US"
+echo "2. PT"
+
+read -p "Enter your option: " option
+
+case $option in
+    1)
+        echo "US Layout selected"
+        setxkbmap us
+        ;;
+    2)
+        echo "PT Layout selected"
+        setxkbmap pt
+        ;;
+    *)
+        echo "Invalid option"
+        ;;
+esac
