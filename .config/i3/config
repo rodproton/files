@@ -46,13 +46,8 @@ bindsym $mod+p exec "dmenu_run -fn 'Liberation sans 10' -p 'dmenu'"
 # Lock screen
 bindsym $mod+Shift+x exec --no-startup-id lock 
 
-###################################################################
-# Launch fzf
-#bindsym $mod+f exec --no-startup-id xterm -e "/local/scripts/fzf.sh"
-
-# Launch cht.sh
-#bindsym $mod+i exec --no-startup-id xterm -e "/local/scripts/cht.sh"
-###################################################################
+# Launch next
+bindsym $mod+n exec --no-startup-id xterm -e swallow "$HOME/.local/bin/next"
 
 # Update system
 bindsym $mod+u exec --no-startup-id xterm update 
