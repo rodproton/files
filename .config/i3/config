@@ -49,6 +49,14 @@ bindsym $mod+Shift+x exec --no-startup-id lock
 # Launch next
 bindsym $mod+n exec --no-startup-id xterm -e swallow "$HOME/.local/bin/next"
 
+# Launch fzf
+#bindsym $mod+i exec --no-startup-id xterm -e "$HOME/.local/bin/tmux-session"
+
+###################################################################
+# Launch cht.sh
+#bindsym $mod+i exec --no-startup-id xterm -e "/local/scripts/cht.sh"
+###################################################################
+
 # Update system
 bindsym $mod+u exec --no-startup-id xterm update 
 
@@ -103,6 +111,9 @@ bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
+
+# Cycle through active workspaces
+bindsym $mod+Tab workspace next
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
