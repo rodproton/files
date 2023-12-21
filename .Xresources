@@ -30,7 +30,7 @@ xterm*allowMouseWheel: true
 xterm*rightScrollBar: true
 
 ! Select font
-xterm*font: xft:FiraMono Nerd Font:size=16
+xterm*font: xft:FiraMono Nerd Font:size=19
 
 ! Remap Ctrl+U and Ctrl+D for scrolling
 XTerm*VT100.translations: #override \
